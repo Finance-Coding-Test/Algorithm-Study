@@ -1,3 +1,4 @@
+#테스트코드 7/11개만 통과함
 #!/bin/python3
 
 import math
