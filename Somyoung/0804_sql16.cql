@@ -1,0 +1,12 @@
+# 문제 링크 : https://school.programmers.co.kr/learn/courses/30/lessons/298518
+
+SELECT
+    COUNT(INFO.ID) AS 'FISH_COUNT'
+FROM
+    (SELECT * FROM FISH_NAME_INFO
+    WHERE FISH_NAME IN ('BASS', 'SNAPPER')) FISH
+    INNER JOIN
+    (SELECT ID, FISH_TYPE
+    FROM FISH_INFO) INFO
+    ON FISH.FISH_TYPE = INFO.FISH_TYPE
+;

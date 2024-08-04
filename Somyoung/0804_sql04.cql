@@ -1,0 +1,16 @@
+# 문제 링크 : https://school.programmers.co.kr/learn/courses/30/lessons/133025
+
+SELECT
+    SHIP.FLAVOR AS 'FLAVOR'
+FROM
+    (SELECT *
+    FROM ICECREAM_INFO
+    WHERE INGREDIENT_TYPE = 'fruit_based') ICECREAM
+    INNER JOIN
+        (SELECT FLAVOR
+        FROM FIRST_HALF
+        GROUP BY FLAVOR
+        HAVING SUM(TOTAL_ORDER)>=3000
+        ORDER BY SUM(TOTAL_ORDER) DESC) SHIP
+    ON SHIP.FLAVOR = ICECREAM.FLAVOR
+;
